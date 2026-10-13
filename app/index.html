@@ -6,13 +6,14 @@
 :root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:#142f50;background:#edf3f8}*{box-sizing:border-box}body{margin:0}header{background:#102b4e;color:white;padding:28px 18px}header>div,main{max-width:1020px;margin:auto}header h1{margin:0;font-size:32px}header p{margin:9px 0 0;color:#d5e2f1}main{padding:14px}section{background:white;border-radius:15px;padding:20px;margin:13px 0;box-shadow:0 2px 12px #16345212}h2{font-size:21px;margin:0 0 12px}.muted{color:#61728a;font-size:14px;line-height:1.5}.eyebrow{display:inline-block;padding:6px 11px;border-radius:16px;background:#e7f3e9;color:#26603b;font-size:13px;margin-bottom:12px}.balls{display:flex;flex-wrap:wrap;gap:9px;margin:14px 0}.ball{display:inline-grid;place-items:center;width:49px;height:49px;border-radius:50%;background:#e4efff;border:2px solid #83ace6;font-weight:800;font-size:19px}.featured .ball{background:#185ca8;border-color:#185ca8;color:white}button,select{font:inherit;border:1px solid #9eb8d5;border-radius:8px;padding:11px 14px}button{background:#1763b5;color:white;cursor:pointer;font-weight:600}select{background:white;max-width:100%;width:250px;color:#17385c}.record{padding:13px 0;border-bottom:1px solid #e4eaf2}.record h3{font-size:15px;margin:0 0 9px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px}.metric{background:#f1f5fb;padding:13px;border-radius:10px}.metric strong{display:block;font-size:21px}.metric span{font-size:12px;color:#526783}.stack{display:flex;align-items:center;gap:10px;flex-wrap:wrap}table{border-collapse:collapse;width:100%}th,td{text-align:left;padding:9px;border-bottom:1px solid #e9edf2}small{color:#53667d}a{color:#1763b5}.featured{border:2px solid #7eaadd}.error{color:#a32b21}@media(max-width:520px){section{padding:16px}.ball{width:42px;height:42px;font-size:16px}header h1{font-size:28px}}
 </style></head><body><header><div><h1>Quini Lab</h1><p>Historial, tendencias y combinaciones del Quini 6</p></div></header>
 <main>
-<p><a href="#jugada"><strong>Ir directamente a mi jugada estimativa ↓</strong></a></p>
+<section><h2>Explorá los datos</h2><p><a href="./historial.html"><strong>Ver todos los concursos y resultados (solo lectura) →</strong></a></p><p class="muted">Filtrá por concurso, fecha, modalidad y números. Incluye descarga de CSV.</p><p><a href="#jugada">Ir a la jugada estimativa ↓</a></p></section>
 <section><span class="eyebrow">Historial conectado · Actualización automática programada</span><h2>Estado de la base</h2><p id="status" aria-live="polite">Cargando historial…</p><div id="metrics" class="grid"></div><p><button id="reload">Comprobar actualización</button></p></section>
 <section class="featured" id="jugada"><span class="eyebrow">Jugada destacada · recalculada con cada actualización</span><h2>Tu jugada estimativa para el próximo sorteo</h2>
-<p class="muted">Selección heurística basada en frecuencias individuales y coincidencias de parejas dentro de la modalidad elegida. <strong>No son números más probables de ganar</strong>: todas las combinaciones específicas conservan la misma probabilidad en un sorteo justo.</p>
+<p class="muted">Modelo exploratorio que combina frecuencias históricas, tendencias recientes, períodos sin aparición, parejas y tríos. <strong>No son números más probables de ganar</strong>: todas las combinaciones específicas conservan la misma probabilidad en un sorteo justo.</p>
 <div class="stack"><label for="mode"><strong>Modalidad:</strong></label><select id="mode"><option>Tradicional</option><option>La Segunda</option><option>Revancha</option><option>Siempre Sale</option><option value="Todas">Todas (combinadas)</option></select></div>
 <div id="pick" class="balls" aria-live="polite">Calculando…</div><button id="copyPick" type="button">Copiar estos seis números</button><p><strong>Probabilidad de acertar los 6: 1 en 9.366.819, igual que cualquier otra combinación en un sorteo justo.</strong></p><div id="explain" class="muted"></div>
 </section>
+<section><h2>Prueba histórica del algoritmo</h2><p class="muted">Se evalúan los últimos 80 sorteos de la modalidad elegida. Para cada sorteo, el modelo se calcula exclusivamente con resultados anteriores. Se compara el promedio de aciertos con el esperado de una combinación cualquiera, sin usar los resultados futuros para armar la jugada.</p><button id="backtest" type="button">Ejecutar prueba histórica</button><div id="validation" aria-live="polite" class="muted" style="margin-top:14px">Presioná el botón para evaluar el modelo.</div></section>
 <section><h2>Frecuencias históricas</h2><div id="stats">Cargando…</div></section>
 <section><h2>Parejas de números más repetidas</h2><div id="pairs">Cargando…</div></section>
 <section><h2>Últimos concursos registrados</h2><div id="results">Cargando…</div></section>
@@ -21,6 +22,7 @@
 <p class="muted">La selección mostrada es descriptiva y no ha demostrado capacidad predictiva fuera de muestra. Distintas modalidades pueden tener reglamentos de premios diferentes.</p></section>
 <section><h2>Fuente de datos</h2><p id="source" class="muted">Cargando atribución…</p><p><a href="https://www.loteriasantafe.gov.ar/" target="_blank" rel="noopener noreferrer">Lotería de Santa Fe — referencia oficial</a></p></section>
 </main>
+<script src="./model.js"></script>
 <script>
 const $=id=>document.getElementById(id);
 const escapeHTML=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','&#39;':'&#39;'}[c]));
@@ -29,23 +31,31 @@ let history=[];let latestPick=[];
 function valid(a){return Array.isArray(a)&&a.length===6&&a.every(n=>Number.isInteger(n)&&n>=0&&n<=45)&&new Set(a).size===6}
 function sample(){const mode=$('mode').value;const draws=[];for(const d of history){for(const [m,a] of Object.entries(d.results||{})){if((mode==='Todas'||mode===m)&&valid(a))draws.push(a)}}return draws}
 function compute(){
-const draws=sample(), freq=Array(46).fill(0), pair=Array.from({length:46},()=>Array(46).fill(0));
-for(const a of draws){for(let i=0;i<6;i++){freq[a[i]]++;for(let j=i+1;j<6;j++){pair[a[i]][a[j]]++;pair[a[j]][a[i]]++}}}
-if(!draws.length){$('pick').textContent='No hay resultados suficientes.';$('stats').textContent='Sin resultados.';$('pairs').textContent='Sin resultados.';$('explain').textContent='';return}
-const avg=draws.length*6/46, expectedPair=draws.length*30/(46*45);
-const chosen=[];
-for(let k=0;k<6;k++){let best=-1,bestScore=-Infinity;for(let n=0;n<46;n++){if(chosen.includes(n))continue;
-let score=0.35*(freq[n]/avg);
-if(chosen.length)score+=0.65*(chosen.reduce((s,m)=>s+pair[n][m]/Math.max(expectedPair,1),0)/chosen.length);
-if(score>bestScore){best=n;bestScore=score}}chosen.push(best)}
-chosen.sort((a,b)=>a-b);latestPick=chosen;
+if(!window.QuiniModel){$('pick').textContent='No se pudo cargar el motor estadístico.';return}
+const data=QuiniModel.dataFor(history,$('mode').value);
+if(!data.length){$('pick').textContent='No hay resultados suficientes.';$('stats').textContent='Sin resultados.';$('pairs').textContent='Sin resultados.';return}
+const m=QuiniModel.compile(data),chosen=m.numbers,freq=m.frequency,pair=m.pairs;
+latestPick=chosen;
 $('pick').innerHTML=chosen.map(n=>'<span class="ball">'+pad(n)+'</span>').join('');
-let pcount=0;for(let i=0;i<6;i++)for(let j=i+1;j<6;j++)pcount+=pair[chosen[i]][chosen[j]];
-$('explain').textContent='Base analizada: '+draws.length.toLocaleString('es-AR')+' extracciones. Puntaje: 35 % frecuencia relativa y 65 % coocurrencia relativa de parejas; selección secuencial de seis números. Las 15 parejas de esta combinación acumularon '+pcount.toLocaleString('es-AR')+' apariciones en el historial (pueden aparecer varias en una extracción). Criterio exploratorio, no validado como predictor.';
-const top=freq.map((count,n)=>({n,count})).sort((a,b)=>b.count-a.count||a.n-b.n).slice(0,12);
-$('stats').innerHTML='<p class="muted">Extracciones para esta modalidad: '+draws.length.toLocaleString('es-AR')+'</p><table><thead><tr><th>Número</th><th>Apariciones</th><th>Frecuencia</th></tr></thead><tbody>'+top.map(x=>'<tr><td>'+pad(x.n)+'</td><td>'+x.count.toLocaleString('es-AR')+'</td><td>'+(100*x.count/draws.length).toFixed(1)+' %</td></tr>').join('')+'</tbody></table>';
-const pairs=[];for(let a=0;a<46;a++)for(let b=a+1;b<46;b++)pairs.push({a,b,count:pair[a][b]});pairs.sort((x,y)=>y.count-x.count||x.a-y.a||x.b-y.b);
+$('explain').textContent='Modelo de selección secuencial: frecuencia 43 %, recencia 12 %, ausencia histórica 5 %, parejas 27 % y tríos 13 %. Se analizaron '+data.length.toLocaleString('es-AR')+' extracciones de '+$('mode').value+'. El puntaje NO equivale a una probabilidad de ganar.';
+const top=Array.from(freq,(count,n)=>({n,count})).sort((a,b)=>b.count-a.count||a.n-b.n).slice(0,12);
+$('stats').innerHTML='<p class="muted">Extracciones de esta selección: '+data.length.toLocaleString('es-AR')+'</p><table><thead><tr><th>Número</th><th>Apariciones</th><th>Frecuencia</th></tr></thead><tbody>'+top.map(x=>'<tr><td>'+pad(x.n)+'</td><td>'+x.count.toLocaleString('es-AR')+'</td><td>'+(100*x.count/data.length).toFixed(1)+' %</td></tr>').join('')+'</tbody></table>';
+const pairs=[];for(let a=0;a<46;a++)for(let b=a+1;b<46;b++)pairs.push({a,b,count:pair[a*46+b]});pairs.sort((a,b)=>b.count-a.count||a.a-b.a||a.b-b.b);
 $('pairs').innerHTML='<table><thead><tr><th>Pareja</th><th>Apariciones</th></tr></thead><tbody>'+pairs.slice(0,12).map(x=>'<tr><td>'+pad(x.a)+' – '+pad(x.b)+'</td><td>'+x.count.toLocaleString('es-AR')+'</td></tr>').join('')+'</tbody></table>';
+$('validation').textContent='Presioná «Ejecutar prueba histórica» para evaluar esta modalidad.';
+}
+function runValidation(){
+if(!window.QuiniModel||!history.length){$('validation').textContent='Todavía no hay resultados disponibles para analizar.';return}
+$('validation').textContent='Calculando resultados retrospectivos…';
+$('backtest').disabled=true;
+setTimeout(()=>{
+try{
+const result=QuiniModel.backtest(QuiniModel.dataFor(history,$('mode').value),80);
+if(result.error)throw Error(result.error);
+const sign=result.meanHits>result.expectedRandom?'por encima':'por debajo';
+$('validation').innerHTML='<p><strong>'+result.count+' extracciones evaluadas.</strong> Media de aciertos de esta estrategia: <strong>'+result.meanHits.toFixed(3)+'</strong>. Referencia matemática para cualquier jugada independiente: <strong>'+result.expectedRandom.toFixed(3)+'</strong> aciertos por extracción. El promedio obtenido quedó '+sign+' de esa referencia.</p><p>Distribución de aciertos: '+result.distribution.map((n,i)=>i+' aciertos: '+n).join(' · ')+'</p><p><strong>Interpretación:</strong> es una prueba retrospectiva de una sola estrategia, con muestra limitada; no demuestra que exista una ventaja futura y puede presentar variaciones aleatorias.</p>';
+}catch(e){$('validation').textContent='Error en la prueba: '+e.message}finally{$('backtest').disabled=false}
+},30);
 }
 async function load(){
 $('status').textContent='Consultando historial…';
@@ -59,5 +69,5 @@ const recent=history.slice().sort((a,b)=>String(b.date||'').localeCompare(String
 $('results').innerHTML=recent.map(d=>'<div class="record"><h3>Concurso '+escapeHTML(d.contest)+' · '+escapeHTML(d.date)+'</h3>'+Object.entries(d.results||{}).filter(([m,a])=>valid(a)).map(([m,a])=>'<strong>'+escapeHTML(m)+'</strong><div class="balls">'+a.map(n=>'<span class="ball">'+pad(n)+'</span>').join('')+'</div>').join('')+'</div>').join('')||'Sin resultados.';
 compute();
 }catch(e){$('status').className='error';$('status').textContent='No se pudo cargar el historial: '+e.message;$('pick').textContent='Sin datos disponibles';$('stats').textContent='Sin datos disponibles';$('pairs').textContent='Sin datos disponibles'}}
-$('copyPick').addEventListener('click',async()=>{if(latestPick.length!==6)return;const txt=latestPick.map(pad).join(' - ');try{await navigator.clipboard.writeText(txt);$('copyPick').textContent='¡Jugada copiada!';setTimeout(()=>$('copyPick').textContent='Copiar estos seis números',2000)}catch(e){$('copyPick').textContent=txt}});$('reload').addEventListener('click',load);$('mode').addEventListener('change',compute);load();
+$('copyPick').addEventListener('click',async()=>{if(latestPick.length!==6)return;const txt=latestPick.map(pad).join(' - ');try{await navigator.clipboard.writeText(txt);$('copyPick').textContent='¡Jugada copiada!';setTimeout(()=>$('copyPick').textContent='Copiar estos seis números',2000)}catch(e){$('copyPick').textContent=txt}});$('backtest').addEventListener('click',runValidation);$('reload').addEventListener('click',load);$('mode').addEventListener('change',compute);load();
 </script></body></html>
