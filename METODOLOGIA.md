@@ -41,7 +41,7 @@ Se preservan las parejas, tríos y atrasos como estadísticas descriptivas. El a
 4. Último 20 %: se audita únicamente la alternativa ya seleccionada, manteniendo fijos sus hiperparámetros. Se actualizan los conteos sólo después de cada concurso observado.
 5. Al terminar la auditoría se utiliza ese mismo método, ajustado con el historial completo, para ordenar las próximas jugadas.
 
-El uniforme se informa como referencia y puede superar a todos los candidatos. Aun en ese caso la interfaz ofrece el ranking exploratorio pedido por el usuario y avisa que no hay ventaja demostrada; no vende el ganador entre seis alternativas como superior al uniforme.
+El uniforme se informa como referencia y puede superar a todos los candidatos. En la interfaz, su media de aciertos es la esperanza matemática 36/46; para los demás métodos se muestran los aciertos observados del primer conjunto. El reporte técnico conserva también el resultado de la combinación arbitraria 00–05 que desempata el modelo uniforme, sin interpretarlo como promedio de simulaciones aleatorias. Aun en ese caso la interfaz ofrece el ranking exploratorio pedido por el usuario y avisa que no hay ventaja demostrada; no vende el ganador entre seis alternativas como superior al uniforme.
 
 La ganancia logarítmica es log(P_modelo(resultado)) - log(1/C(46,6)). Valores positivos favorecen al modelo. Se promedian primero las extracciones dentro del concurso y luego los concursos, para que una fecha con más modalidades no tenga más peso. La media de aciertos usa el mismo criterio. La tabla de distribución conserva el conteo de extracciones.
 
