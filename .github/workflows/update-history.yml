@@ -1,0 +1,36 @@
+name: Actualizar historial Quini 6
+on:
+  schedule:
+    - cron: '40 0 * * 4,1'
+    - cron: '40 1 * * 4,1'
+    - cron: '40 2 * * 4,1'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/update_history.py'
+      - '.github/workflows/update-history.yml'
+permissions:
+  contents: write
+concurrency:
+  group: quini-data-sync
+  cancel-in-progress: false
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Importar historial y verificar integridad
+        run: python scripts/update_history.py
+      - name: Registrar actualización solo si cambió la base
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add app/data.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Actualizar historial Quini 6"
+            git push
+          fi
