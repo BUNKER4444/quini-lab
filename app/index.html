@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#102b4e"><title>Quini Lab</title>
+<style>
+:root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:#1b3049;background:#eef3f8}*{box-sizing:border-box}body{margin:0}header{background:#102b4e;color:white;padding:28px 20px}header>div,main{max-width:1000px;margin:auto}h1{margin:0;font-size:32px}header p{margin-bottom:0;color:#d3e1f2}main{padding:14px}section{background:white;border-radius:15px;padding:20px;margin:14px 0;box-shadow:0 2px 12px #16345215}h2{font-size:20px;margin-top:0}.muted{color:#566980}.pill{display:inline-block;padding:6px 11px;border-radius:18px;background:#fff1d5;color:#6d4700;font-size:13px;margin-bottom:15px}button{border:0;background:#1763b5;color:white;padding:11px 16px;border-radius:8px;font-weight:600;cursor:pointer}.balls{display:flex;flex-wrap:wrap;gap:7px;margin:8px 0 16px}.ball{display:inline-grid;place-items:center;width:43px;height:43px;border-radius:50%;background:#eaf1fc;border:1px solid #9bbce6;font-weight:700}.record{padding:12px 0;border-bottom:1px solid #e8edf3}.record h3{margin:0 0 12px;font-size:16px}table{border-collapse:collapse;width:100%}th,td{text-align:left;padding:9px;border-bottom:1px solid #e9edf2}small{font-size:12px}a{color:#1763b5}@media(max-width:520px){.ball{width:36px;height:36px}.record{font-size:14px}}
+</style></head><body><header><div><h1>Quini Lab</h1><p>Historial y estadísticas del Quini 6</p></div></header><main>
+<section><span class="pill">Versión de prueba · Aún sin resultados históricos verificados</span><h2>Estado de la base</h2><p id="status" aria-live="polite">Consultando datos…</p><button id="reload">Comprobar actualización</button></section>
+<section><h2>Últimos concursos cargados</h2><div id="results">No hay concursos cargados.</div></section>
+<section><h2>Frecuencias observadas</h2><p class="muted">Conteo histórico, no predicción. Se calcula sobre todos los concursos disponibles y se diferencia por modalidad en futuras versiones.</p><div id="stats">Sin datos suficientes.</div></section>
+<section><h2>Probabilidad matemática</h2><p>Si se extraen seis números distintos entre 00 y 45, cada combinación específica tiene una probabilidad de <b>1 en 9.366.819</b> en una extracción uniforme. Un número o pareja que salió más veces no gana una ventaja para el próximo sorteo.</p></section>
+<section><h2>Fuentes y transparencia</h2><p class="muted">El panel no muestra números sugeridos hasta tener un historial verificable y un método de evaluación documentado. <a href="https://www.loteriasantafe.gov.ar/" target="_blank" rel="noopener noreferrer">Lotería de Santa Fe</a>.</p></section>
+</main><script>
+const safe=t=>String(t??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function valid(a){return Array.isArray(a)&&a.length===6&&a.every(n=>Number.isInteger(n)&&n>=0&&n<=45)&&new Set(a).size===6}
+async function load(){
+document.getElementById('status').textContent='Consultando…';
+try{
+const r=await fetch('./data.json?t='+Date.now(),{cache:'no-store'});if(!r.ok)throw Error('HTTP '+r.status);
+const d=await r.json(),draws=Array.isArray(d.draws)?d.draws:[],counts=Array(46).fill(0);let samples=0;
+document.getElementById('status').textContent=draws.length+' concursos cargados · Actualización: '+(d.updated||'pendiente')+' · Fuente: '+(d.source||'sin especificar');
+const latest=draws.slice().sort((a,b)=>String(b.date||'').localeCompare(String(a.date||''))).slice(0,10);
+document.getElementById('results').innerHTML=latest.map(x=>'<div class="record"><h3>Concurso '+safe(x.contest)+' · '+safe(x.date)+'</h3>'+Object.entries(x.results||{}).filter(([k,a])=>valid(a)).map(([k,a])=>'<div><b>'+safe(k)+'</b><div class="balls">'+a.map(n=>'<span class="ball">'+String(n).padStart(2,'0')+'</span>').join('')+'</div></div>').join('')+'</div>').join('')||'No hay resultados verificados cargados.';
+for(const x of draws){for(const a of Object.values(x.results||{})){if(!valid(a))continue;samples++;for(const n of a)counts[n]++}}
+const rank=counts.map((count,n)=>({n,count})).sort((a,b)=>b.count-a.count||a.n-b.n).slice(0,12);
+document.getElementById('stats').innerHTML=samples?'<p>Extracciones válidas analizadas: '+samples+'</p><table><thead><tr><th>Número</th><th>Apariciones</th></tr></thead><tbody>'+rank.map(x=>'<tr><td>'+String(x.n).padStart(2,'0')+'</td><td>'+x.count+'</td></tr>').join('')+'</tbody></table>':'No hay estadísticas hasta cargar resultados verificados.';
+}catch(e){document.getElementById('status').textContent='Error al consultar los datos: '+e.message}}
+document.getElementById('reload').addEventListener('click',load);load();
+</script></body></html>
