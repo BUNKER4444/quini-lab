@@ -31,6 +31,8 @@ def main():
         if mode not in MODES:
             raise ValueError("Modalidad desconocida: " + mode)
         datetime.strptime(day, "%Y-%m-%d")
+        if day > datetime.now(timezone.utc).strftime("%Y-%m-%d"):
+            raise ValueError("Fecha futura en la fuente: " + day)
         nums = [int(row["numero" + str(i)]) for i in range(1, 7)]
         if not valid(nums):
             raise ValueError(f"Números inválidos {contest} {mode}")
@@ -62,12 +64,27 @@ def main():
         "last_date": max(dates.values()),
         "draws": draws,
     }
+    if incomplete:
+        raise ValueError(f"Fuente incompleta: {incomplete} concursos; conservar la base hasta el próximo intento")
     if TARGET.exists():
         old = json.loads(TARGET.read_text(encoding="utf-8"))
         if old.get("draw_count", 0) > len(draws):
             raise ValueError("Fuente contiene menos sorteos que la base actual; no sobrescribir")
+        by_contest = {d["contest"]: d for d in draws}
+        for previous in old.get("draws", []):
+            current = by_contest.get(previous["contest"])
+            if current is None or not set(previous["results"]).issubset(current["results"]):
+                raise ValueError("La fuente perdió datos del concurso " + str(previous["contest"]))
+            if current != previous:
+                raise ValueError("Cambio en un concurso ya importado; requiere revisión: " + str(previous["contest"]))
+        comparable = {k: v for k, v in data.items() if k != "updated"}
+        if comparable == {k: v for k, v in old.items() if k != "updated"}:
+            print("Sin concursos nuevos ni cambios; se conserva la fecha de actualización")
+            return
     TARGET.parent.mkdir(parents=True, exist_ok=True)
-    TARGET.write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
+    temporary = TARGET.with_suffix(".json.tmp")
+    temporary.write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
+    temporary.replace(TARGET)
     print(f"Actualizado: {len(draws)} concursos, {nrows} extracciones; {incomplete} concursos parciales; {data['first_date']} a {data['last_date']}")
 
 if __name__ == "__main__":

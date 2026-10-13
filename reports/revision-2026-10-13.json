@@ -1,0 +1,2576 @@
+{
+  "reviewDate": "2026-10-13",
+  "version": "2.0.0",
+  "dataSHA256": "7672106db82e51b51148695edab873b4b2a70a9feb211766ff5d0da5ea47f197",
+  "source": "Observatorio de Sorteos (CC BY 4.0)",
+  "drawCount": 1669,
+  "recordCount": 6676,
+  "lastDate": "2026-10-11",
+  "results": [
+    {
+      "mode": "Tradicional",
+      "version": "2.0.0",
+      "selected": {
+        "id": "ensemble",
+        "name": "Ensamble regularizado",
+        "state": null,
+        "prior": 0
+      },
+      "sufficient": true,
+      "signal": false,
+      "count": 1669,
+      "contests": 1669,
+      "last": "2026-10-11",
+      "lastContest": 3416,
+      "validation": [
+        {
+          "id": "uniform",
+          "name": "Azar uniforme",
+          "count": 334,
+          "contests": 334,
+          "meanHits": 0.8203592814371258,
+          "meanHitsCI": [
+            0.7288845952380283,
+            0.9118339676362233
+          ],
+          "distribution": [
+            134,
+            139,
+            50,
+            9,
+            2,
+            0,
+            0
+          ],
+          "logLoss": 16.052684108848812,
+          "logGain": 0,
+          "logGainCI": [
+            0,
+            0
+          ],
+          "firstForecast": {
+            "contest": 2749,
+            "date": "2020-02-12",
+            "numbers": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          "halves": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "history200",
+          "name": "Frecuencia · suavizado 200",
+          "count": 334,
+          "contests": 334,
+          "meanHits": 0.7604790419161677,
+          "meanHitsCI": [
+            0.6669243050472415,
+            0.8540337787850938
+          ],
+          "distribution": [
+            149,
+            127,
+            48,
+            9,
+            1,
+            0,
+            0
+          ],
+          "logLoss": 16.06914166728184,
+          "logGain": -0.016457558433027864,
+          "logGainCI": [
+            -0.039262490271072786,
+            0.0063473734050170545
+          ],
+          "firstForecast": {
+            "contest": 2749,
+            "date": "2020-02-12",
+            "numbers": [
+              3,
+              6,
+              28,
+              31,
+              33,
+              39
+            ]
+          },
+          "halves": [
+            -0.025498847768905833,
+            -0.007416269097149895
+          ]
+        },
+        {
+          "id": "history1000",
+          "name": "Frecuencia · suavizado 1000",
+          "count": 334,
+          "contests": 334,
+          "meanHits": 0.7604790419161677,
+          "meanHitsCI": [
+            0.6669243050472415,
+            0.8540337787850938
+          ],
+          "distribution": [
+            149,
+            127,
+            48,
+            9,
+            1,
+            0,
+            0
+          ],
+          "logLoss": 16.059143084951838,
+          "logGain": -0.006458976103024707,
+          "logGainCI": [
+            -0.020820753605947633,
+            0.00790280139989822
+          ],
+          "firstForecast": {
+            "contest": 2749,
+            "date": "2020-02-12",
+            "numbers": [
+              3,
+              6,
+              28,
+              31,
+              33,
+              39
+            ]
+          },
+          "halves": [
+            -0.011585752103635735,
+            -0.0013322001024136773
+          ]
+        },
+        {
+          "id": "recent52",
+          "name": "Recencia · 52 concursos",
+          "count": 334,
+          "contests": 334,
+          "meanHits": 0.7784431137724551,
+          "meanHitsCI": [
+            0.6982326217444728,
+            0.8586536058004375
+          ],
+          "distribution": [
+            139,
+            137,
+            52,
+            5,
+            1,
+            0,
+            0
+          ],
+          "logLoss": 16.059407060636406,
+          "logGain": -0.006722951787595581,
+          "logGainCI": [
+            -0.024024569299427884,
+            0.010578665724236724
+          ],
+          "firstForecast": {
+            "contest": 2749,
+            "date": "2020-02-12",
+            "numbers": [
+              0,
+              12,
+              33,
+              38,
+              40,
+              41
+            ]
+          },
+          "halves": [
+            -0.01894303349673026,
+            0.0054971299215390975
+          ]
+        },
+        {
+          "id": "recent156",
+          "name": "Recencia · 156 concursos",
+          "count": 334,
+          "contests": 334,
+          "meanHits": 0.8083832335329342,
+          "meanHitsCI": [
+            0.7160506909711447,
+            0.9007157760947236
+          ],
+          "distribution": [
+            134,
+            140,
+            51,
+            8,
+            1,
+            0,
+            0
+          ],
+          "logLoss": 16.060026925377763,
+          "logGain": -0.007342816528949646,
+          "logGainCI": [
+            -0.02578731361460141,
+            0.011101680556702118
+          ],
+          "firstForecast": {
+            "contest": 2749,
+            "date": "2020-02-12",
+            "numbers": [
+              0,
+              4,
+              20,
+              33,
+              38,
+              39
+            ]
+          },
+          "halves": [
+            -0.014254536068028635,
+            -0.00043109698987065756
+          ]
+        },
+        {
+          "id": "recent416",
+          "name": "Recencia · 416 concursos",
+          "count": 334,
+          "contests": 334,
+          "meanHits": 0.8083832335329342,
+          "meanHitsCI": [
+            0.7275843373407145,
+            0.8891821297251539
+          ],
+          "distribution": [
+            136,
+            135,
+            56,
+            5,
+            2,
+            0,
+            0
+          ],
+          "logLoss": 16.06122201048726,
+          "logGain": -0.00853790163844835,
+          "logGainCI": [
+            -0.026728668548090154,
+            0.009652865271193453
+          ],
+          "firstForecast": {
+            "contest": 2749,
+            "date": "2020-02-12",
+            "numbers": [
+              0,
+              28,
+              31,
+              33,
+              39,
+              40
+            ]
+          },
+          "halves": [
+            -0.014149059901529953,
+            -0.002926743375366748
+          ]
+        },
+        {
+          "id": "ensemble",
+          "name": "Ensamble regularizado",
+          "count": 334,
+          "contests": 334,
+          "meanHits": 0.7934131736526946,
+          "meanHitsCI": [
+            0.7064966150865071,
+            0.8803297322188821
+          ],
+          "distribution": [
+            137,
+            139,
+            50,
+            6,
+            2,
+            0,
+            0
+          ],
+          "logLoss": 16.055950763299617,
+          "logGain": -0.0032666544508057256,
+          "logGainCI": [
+            -0.01612512762841418,
+            0.009591818726802731
+          ],
+          "firstForecast": {
+            "contest": 2749,
+            "date": "2020-02-12",
+            "numbers": [
+              0,
+              31,
+              33,
+              38,
+              39,
+              40
+            ]
+          },
+          "halves": [
+            -0.009952682011766611,
+            0.00341937311015516
+          ]
+        }
+      ],
+      "audit": {
+        "count": 334,
+        "contests": 334,
+        "meanHits": 0.7455089820359282,
+        "meanHitsCI": [
+          0.666080246364012,
+          0.8249377177078444
+        ],
+        "distribution": [
+          147,
+          131,
+          50,
+          6,
+          0,
+          0,
+          0
+        ],
+        "logLoss": 16.059983793424095,
+        "logGain": -0.007299684575282794,
+        "logGainCI": [
+          -0.018312616351389643,
+          0.0037132472008240547
+        ],
+        "firstForecast": {
+          "contest": 3083,
+          "date": "2023-08-02",
+          "numbers": [
+            0,
+            6,
+            12,
+            21,
+            31,
+            43
+          ]
+        },
+        "halves": [
+          -0.002147505084461526,
+          -0.012451864066104061
+        ]
+      },
+      "split": {
+        "training": {
+          "count": 1001,
+          "from": "2010-07-11",
+          "to": "2020-02-09",
+          "firstContest": 1748,
+          "lastContest": 2748
+        },
+        "validation": {
+          "count": 334,
+          "from": "2020-02-12",
+          "to": "2023-07-30",
+          "firstContest": 2749,
+          "lastContest": 3082
+        },
+        "test": {
+          "count": 334,
+          "from": "2023-08-02",
+          "to": "2026-10-11",
+          "firstContest": 3083,
+          "lastContest": 3416
+        }
+      },
+      "uniform": {
+        "combinationProbability": 1.0675982956433769e-7,
+        "expectedHits": 0.782608695652174,
+        "logLoss": 16.052684108848812
+      },
+      "interpretation": "No se demostró una ventaja predictiva frente al azar uniforme.",
+      "picks": [
+        {
+          "numbers": [
+            0,
+            4,
+            5,
+            9,
+            10,
+            31
+          ],
+          "logScore": -9.121002522649064,
+          "rank": 1,
+          "score": 100
+        },
+        {
+          "numbers": [
+            0,
+            5,
+            9,
+            10,
+            16,
+            31
+          ],
+          "logScore": -9.123671808425204,
+          "rank": 2,
+          "score": 99.73342735994365
+        },
+        {
+          "numbers": [
+            0,
+            2,
+            5,
+            9,
+            10,
+            31
+          ],
+          "logScore": -9.125779109811518,
+          "rank": 3,
+          "score": 99.52348025880785
+        },
+        {
+          "numbers": [
+            0,
+            5,
+            9,
+            10,
+            21,
+            31
+          ],
+          "logScore": -9.12750333973145,
+          "rank": 4,
+          "score": 99.35202675152065
+        },
+        {
+          "numbers": [
+            0,
+            5,
+            6,
+            9,
+            10,
+            31
+          ],
+          "logScore": -9.128868238799745,
+          "rank": 5,
+          "score": 99.21651376458681
+        },
+        {
+          "numbers": [
+            4,
+            5,
+            9,
+            10,
+            16,
+            31
+          ],
+          "logScore": -9.13019418745792,
+          "rank": 6,
+          "score": 99.08504494100862
+        },
+        {
+          "numbers": [
+            0,
+            5,
+            9,
+            10,
+            12,
+            31
+          ],
+          "logScore": -9.131995482728723,
+          "rank": 7,
+          "score": 98.90672417054536
+        },
+        {
+          "numbers": [
+            2,
+            4,
+            5,
+            9,
+            10,
+            31
+          ],
+          "logScore": -9.132301488844234,
+          "rank": 8,
+          "score": 98.87646273841172
+        },
+        {
+          "numbers": [
+            0,
+            5,
+            9,
+            10,
+            27,
+            31
+          ],
+          "logScore": -9.132598337336603,
+          "rank": 9,
+          "score": 98.84711576553494
+        },
+        {
+          "numbers": [
+            0,
+            4,
+            5,
+            9,
+            10,
+            16
+          ],
+          "logScore": -9.133726576464207,
+          "rank": 10,
+          "score": 98.73565547063372
+        }
+      ]
+    },
+    {
+      "mode": "La Segunda",
+      "version": "2.0.0",
+      "selected": {
+        "id": "ensemble",
+        "name": "Ensamble regularizado",
+        "state": null,
+        "prior": 0
+      },
+      "sufficient": true,
+      "signal": false,
+      "count": 1669,
+      "contests": 1669,
+      "last": "2026-10-11",
+      "lastContest": 3416,
+      "validation": [
+        {
+          "id": "uniform",
+          "name": "Azar uniforme",
+          "count": 334,
+          "contests": 334,
+          "meanHits": 0.7005988023952096,
+          "meanHitsCI": [
+            0.6299155915303665,
+            0.7712820132600526
+          ],
+          "distribution": [
+            158,
+            122,
+            50,
+            4,
+            0,
+            0,
+            0
+          ],
+          "logLoss": 16.052684108848812,
+          "logGain": 0,
+          "logGainCI": [
+            0,
+            0
+          ],
+          "firstForecast": {
+            "contest": 2749,
+            "date": "2020-02-12",
+            "numbers": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          "halves": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "history200",
+          "name": "Frecuencia · suavizado 200",
+          "count": 334,
+          "contests": 334,
+          "meanHits": 0.7065868263473054,
+          "meanHitsCI": [
+            0.6249878078189713,
+            0.7881858448756395
+          ],
+          "distribution": [
+            151,
+            137,
+            39,
+            7,
+            0,
+            0,
+            0
+          ],
+          "logLoss": 16.07713476187442,
+          "logGain": -0.024450653025607602,
+          "logGainCI": [
+            -0.042723798753496633,
+            -0.006177507297718574
+          ],
+          "firstForecast": {
+            "contest": 2749,
+            "date": "2020-02-12",
+            "numbers": [
+              2,
+              5,
+              6,
+              23,
+              36,
+              42
+            ]
+          },
+          "halves": [
+            -0.011909138895078384,
+            -0.03699216715613682
+          ]
+        },
+        {
+          "id": "history1000",
+          "name": "Frecuencia · suavizado 1000",
+          "count": 334,
+          "contests": 334,
+          "meanHits": 0.7065868263473054,
+          "meanHitsCI": [
+            0.6249878078189713,
+            0.7881858448756395
+          ],
+          "distribution": [
+            151,
+            137,
+            39,
+            7,
+            0,
+            0,
+            0
+          ],
+          "logLoss": 16.063704101509735,
+          "logGain": -0.011019992660924594,
+          "logGainCI": [
+            -0.02247221967351229,
+            0.0004322343516631015
+          ],
+          "firstForecast": {
+            "contest": 2749,
+            "date": "2020-02-12",
+            "numbers": [
+              2,
+              5,
+              6,
+              23,
+              36,
+              42
+            ]
+          },
+          "halves": [
+            -0.002627446359607869,
+            -0.01941253896224132
+          ]
+        },
+        {
+          "id": "recent52",
+          "name": "Recencia · 52 concursos",
+          "count": 334,
+          "contests": 334,
+          "meanHits": 0.7904191616766467,
+          "meanHitsCI": [
+            0.7061295897946152,
+            0.8747087335586783
+          ],
+          "distribution": [
+            142,
+            124,
+            64,
+            4,
+            0,
+            0,
+            0
+          ],
+          "logLoss": 16.06700890076394,
+          "logGain": -0.014324791915128515,
+          "logGainCI": [
+            -0.029905789252091017,
+            0.0012562054218339894
+          ],
+          "firstForecast": {
+            "contest": 2749,
+            "date": "2020-02-12",
+            "numbers": [
+              5,
+              21,
+              23,
+              35,
+              36,
+              38
+            ]
+          },
+          "halves": [
+            -0.004627221242531844,
+            -0.024022362587725183
+          ]
+        },
+        {
+          "id": "recent156",
+          "name": "Recencia · 156 concursos",
+          "count": 334,
+          "contests": 334,
+          "meanHits": 0.8083832335329342,
+          "meanHitsCI": [
+            0.7342131003059236,
+            0.8825533667599448
+          ],
+          "distribution": [
+            132,
+            137,
+            62,
+            3,
+            0,
+            0,
+            0
+          ],
+          "logLoss": 16.070542411235483,
+          "logGain": -0.01785830238666969,
+          "logGainCI": [
+            -0.0351095715510098,
+            -0.0006070332223295748
+          ],
+          "firstForecast": {
+            "contest": 2749,
+            "date": "2020-02-12",
+            "numbers": [
+              3,
+              5,
+              23,
+              35,
+              36,
+              42
+            ]
+          },
+          "halves": [
+            -0.009327892945271136,
+            -0.026388711828068245
+          ]
+        },
+        {
+          "id": "recent416",
+          "name": "Recencia · 416 concursos",
+          "count": 334,
+          "contests": 334,
+          "meanHits": 0.7754491017964071,
+          "meanHitsCI": [
+            0.6964708452106204,
+            0.8544273583821939
+          ],
+          "distribution": [
+            139,
+            135,
+            56,
+            4,
+            0,
+            0,
+            0
+          ],
+          "logLoss": 16.071131851141594,
+          "logGain": -0.018447742292782118,
+          "logGainCI": [
+            -0.03490541300614213,
+            -0.0019900715794221036
+          ],
+          "firstForecast": {
+            "contest": 2749,
+            "date": "2020-02-12",
+            "numbers": [
+              5,
+              6,
+              23,
+              35,
+              36,
+              42
+            ]
+          },
+          "halves": [
+            -0.008195415381963186,
+            -0.028700069203601047
+          ]
+        },
+        {
+          "id": "ensemble",
+          "name": "Ensamble regularizado",
+          "count": 334,
+          "contests": 334,
+          "meanHits": 0.7874251497005988,
+          "meanHitsCI": [
+            0.7036397768820468,
+            0.8712105225191509
+          ],
+          "distribution": [
+            137,
+            135,
+            58,
+            4,
+            0,
+            0,
+            0
+          ],
+          "logLoss": 16.062599004798003,
+          "logGain": -0.009914895949189663,
+          "logGainCI": [
+            -0.02132537223232006,
+            0.001495580333940736
+          ],
+          "firstForecast": {
+            "contest": 2749,
+            "date": "2020-02-12",
+            "numbers": [
+              5,
+              6,
+              23,
+              35,
+              36,
+              42
+            ]
+          },
+          "halves": [
+            -0.001659820507377408,
+            -0.01816997139100192
+          ]
+        }
+      ],
+      "audit": {
+        "count": 334,
+        "contests": 334,
+        "meanHits": 0.811377245508982,
+        "meanHitsCI": [
+          0.7340670304966679,
+          0.8886874605212962
+        ],
+        "distribution": [
+          127,
+          152,
+          46,
+          9,
+          0,
+          0,
+          0
+        ],
+        "logLoss": 16.05284532032011,
+        "logGain": -0.0001612114712963377,
+        "logGainCI": [
+          -0.012358068695226153,
+          0.012035645752633476
+        ],
+        "firstForecast": {
+          "contest": 3083,
+          "date": "2023-08-02",
+          "numbers": [
+            35,
+            36,
+            37,
+            38,
+            41,
+            42
+          ]
+        },
+        "halves": [
+          0.0011698334421771353,
+          -0.0014922563847698106
+        ]
+      },
+      "split": {
+        "training": {
+          "count": 1001,
+          "from": "2010-07-11",
+          "to": "2020-02-09",
+          "firstContest": 1748,
+          "lastContest": 2748
+        },
+        "validation": {
+          "count": 334,
+          "from": "2020-02-12",
+          "to": "2023-07-30",
+          "firstContest": 2749,
+          "lastContest": 3082
+        },
+        "test": {
+          "count": 334,
+          "from": "2023-08-02",
+          "to": "2026-10-11",
+          "firstContest": 3083,
+          "lastContest": 3416
+        }
+      },
+      "uniform": {
+        "combinationProbability": 1.0675982956433769e-7,
+        "expectedHits": 0.782608695652174,
+        "logLoss": 16.052684108848812
+      },
+      "interpretation": "No se demostró una ventaja predictiva frente al azar uniforme.",
+      "picks": [
+        {
+          "numbers": [
+            8,
+            20,
+            22,
+            24,
+            33,
+            42
+          ],
+          "logScore": -9.031321143157799,
+          "rank": 1,
+          "score": 100
+        },
+        {
+          "numbers": [
+            0,
+            8,
+            22,
+            24,
+            33,
+            42
+          ],
+          "logScore": -9.031692121486548,
+          "rank": 2,
+          "score": 99.96290904752018
+        },
+        {
+          "numbers": [
+            8,
+            16,
+            22,
+            24,
+            33,
+            42
+          ],
+          "logScore": -9.039066227949666,
+          "rank": 3,
+          "score": 99.22848310938357
+        },
+        {
+          "numbers": [
+            0,
+            20,
+            22,
+            24,
+            33,
+            42
+          ],
+          "logScore": -9.041739423082706,
+          "rank": 4,
+          "score": 98.9635802375595
+        },
+        {
+          "numbers": [
+            6,
+            8,
+            22,
+            24,
+            33,
+            42
+          ],
+          "logScore": -9.042029618375143,
+          "rank": 5,
+          "score": 98.9348656390741
+        },
+        {
+          "numbers": [
+            0,
+            8,
+            20,
+            22,
+            24,
+            33
+          ],
+          "logScore": -9.044529037390456,
+          "rank": 6,
+          "score": 98.68789472508854
+        },
+        {
+          "numbers": [
+            0,
+            8,
+            20,
+            22,
+            24,
+            42
+          ],
+          "logScore": -9.046091196385916,
+          "rank": 7,
+          "score": 98.53384889596657
+        },
+        {
+          "numbers": [
+            16,
+            20,
+            22,
+            24,
+            33,
+            42
+          ],
+          "logScore": -9.049113529545822,
+          "rank": 8,
+          "score": 98.23649635264816
+        },
+        {
+          "numbers": [
+            0,
+            16,
+            22,
+            24,
+            33,
+            42
+          ],
+          "logScore": -9.049484507874572,
+          "rank": 9,
+          "score": 98.20005950046816
+        },
+        {
+          "numbers": [
+            8,
+            16,
+            20,
+            22,
+            24,
+            33
+          ],
+          "logScore": -9.051903143853574,
+          "rank": 10,
+          "score": 97.96283629734965
+        }
+      ]
+    },
+    {
+      "mode": "Revancha",
+      "version": "2.0.0",
+      "selected": {
+        "id": "ensemble",
+        "name": "Ensamble regularizado",
+        "state": null,
+        "prior": 0
+      },
+      "sufficient": true,
+      "signal": false,
+      "count": 1669,
+      "contests": 1669,
+      "last": "2026-10-11",
+      "lastContest": 3416,
+      "validation": [
+        {
+          "id": "uniform",
+          "name": "Azar uniforme",
+          "count": 334,
+          "contests": 334,
+          "meanHits": 0.7514970059880239,
+          "meanHitsCI": [
+            0.6641908508469072,
+            0.8388031611291407
+          ],
+          "distribution": [
+            145,
+            138,
+            40,
+            11,
+            0,
+            0,
+            0
+          ],
+          "logLoss": 16.052684108848812,
+          "logGain": 0,
+          "logGainCI": [
+            0,
+            0
+          ],
+          "firstForecast": {
+            "contest": 2749,
+            "date": "2020-02-12",
+            "numbers": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          "halves": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "history200",
+          "name": "Frecuencia · suavizado 200",
+          "count": 334,
+          "contests": 334,
+          "meanHits": 0.7724550898203593,
+          "meanHitsCI": [
+            0.6836020977394773,
+            0.8613080819012412
+          ],
+          "distribution": [
+            134,
+            148,
+            46,
+            6,
+            0,
+            0,
+            0
+          ],
+          "logLoss": 16.079459305780226,
+          "logGain": -0.026775196931412594,
+          "logGainCI": [
+            -0.04846037442330315,
+            -0.005090019439522038
+          ],
+          "firstForecast": {
+            "contest": 2749,
+            "date": "2020-02-12",
+            "numbers": [
+              1,
+              2,
+              6,
+              7,
+              9,
+              23
+            ]
+          },
+          "halves": [
+            -0.009673319502115446,
+            -0.04387707436070974
+          ]
+        },
+        {
+          "id": "history1000",
+          "name": "Frecuencia · suavizado 1000",
+          "count": 334,
+          "contests": 334,
+          "meanHits": 0.7724550898203593,
+          "meanHitsCI": [
+            0.6836020977394773,
+            0.8613080819012412
+          ],
+          "distribution": [
+            134,
+            148,
+            46,
+            6,
+            0,
+            0,
+            0
+          ],
+          "logLoss": 16.06486376555907,
+          "logGain": -0.01217965671025983,
+          "logGainCI": [
+            -0.02598318830750278,
+            0.0016238748869831197
+          ],
+          "firstForecast": {
+            "contest": 2749,
+            "date": "2020-02-12",
+            "numbers": [
+              1,
+              2,
+              6,
+              7,
+              9,
+              23
+            ]
+          },
+          "halves": [
+            -0.0004349851674338657,
+            -0.023924328253085794
+          ]
+        },
+        {
+          "id": "recent52",
+          "name": "Recencia · 52 concursos",
+          "count": 334,
+          "contests": 334,
+          "meanHits": 0.7275449101796407,
+          "meanHitsCI": [
+            0.637070288447862,
+            0.8180195319114195
+          ],
+          "distribution": [
+            146,
+            141,
+            40,
+            6,
+            1,
+            0,
+            0
+          ],
+          "logLoss": 16.070179391365492,
+          "logGain": -0.017495282516679124,
+          "logGainCI": [
+            -0.032236275214247115,
+            -0.002754289819111135
+          ],
+          "firstForecast": {
+            "contest": 2749,
+            "date": "2020-02-12",
+            "numbers": [
+              2,
+              4,
+              9,
+              22,
+              28,
+              41
+            ]
+          },
+          "halves": [
+            -0.010573618368450237,
+            -0.02441694666490801
+          ]
+        },
+        {
+          "id": "recent156",
+          "name": "Recencia · 156 concursos",
+          "count": 334,
+          "contests": 334,
+          "meanHits": 0.7395209580838323,
+          "meanHitsCI": [
+            0.6511208739583765,
+            0.8279210422092882
+          ],
+          "distribution": [
+            148,
+            134,
+            43,
+            9,
+            0,
+            0,
+            0
+          ],
+          "logLoss": 16.074599240669503,
+          "logGain": -0.021915131820691658,
+          "logGainCI": [
+            -0.03653531932396105,
+            -0.007294944317422263
+          ],
+          "firstForecast": {
+            "contest": 2749,
+            "date": "2020-02-12",
+            "numbers": [
+              2,
+              7,
+              22,
+              23,
+              28,
+              45
+            ]
+          },
+          "halves": [
+            -0.015067001629817499,
+            -0.02876326201156582
+          ]
+        },
+        {
+          "id": "recent416",
+          "name": "Recencia · 416 concursos",
+          "count": 334,
+          "contests": 334,
+          "meanHits": 0.7065868263473054,
+          "meanHitsCI": [
+            0.6171008071722359,
+            0.7960728455223749
+          ],
+          "distribution": [
+            155,
+            128,
+            46,
+            4,
+            1,
+            0,
+            0
+          ],
+          "logLoss": 16.07335968153425,
+          "logGain": -0.020675572685438383,
+          "logGainCI": [
+            -0.03709645678414737,
+            -0.004254688586729397
+          ],
+          "firstForecast": {
+            "contest": 2749,
+            "date": "2020-02-12",
+            "numbers": [
+              1,
+              2,
+              7,
+              22,
+              23,
+              43
+            ]
+          },
+          "halves": [
+            -0.009927754087447933,
+            -0.03142339128342883
+          ]
+        },
+        {
+          "id": "ensemble",
+          "name": "Ensamble regularizado",
+          "count": 334,
+          "contests": 334,
+          "meanHits": 0.7275449101796407,
+          "meanHitsCI": [
+            0.6342145491440232,
+            0.8208752712152583
+          ],
+          "distribution": [
+            149,
+            135,
+            43,
+            6,
+            1,
+            0,
+            0
+          ],
+          "logLoss": 16.06476630812513,
+          "logGain": -0.012082199276316085,
+          "logGainCI": [
+            -0.023497998037599742,
+            -0.0006664005150324257
+          ],
+          "firstForecast": {
+            "contest": 2749,
+            "date": "2020-02-12",
+            "numbers": [
+              1,
+              2,
+              6,
+              7,
+              22,
+              23
+            ]
+          },
+          "halves": [
+            -0.0032669432880472965,
+            -0.020897455264584874
+          ]
+        }
+      ],
+      "audit": {
+        "count": 334,
+        "contests": 334,
+        "meanHits": 0.7544910179640718,
+        "meanHitsCI": [
+          0.6737264524881224,
+          0.8352555834400213
+        ],
+        "distribution": [
+          146,
+          133,
+          46,
+          9,
+          0,
+          0,
+          0
+        ],
+        "logLoss": 16.057670074018066,
+        "logGain": -0.004985965169254341,
+        "logGainCI": [
+          -0.01586057385570227,
+          0.005888643517193586
+        ],
+        "firstForecast": {
+          "contest": 3083,
+          "date": "2023-08-02",
+          "numbers": [
+            2,
+            4,
+            6,
+            19,
+            23,
+            37
+          ]
+        },
+        "halves": [
+          -0.01221911856055896,
+          0.0022471882220502794
+        ]
+      },
+      "split": {
+        "training": {
+          "count": 1001,
+          "from": "2010-07-11",
+          "to": "2020-02-09",
+          "firstContest": 1748,
+          "lastContest": 2748
+        },
+        "validation": {
+          "count": 334,
+          "from": "2020-02-12",
+          "to": "2023-07-30",
+          "firstContest": 2749,
+          "lastContest": 3082
+        },
+        "test": {
+          "count": 334,
+          "from": "2023-08-02",
+          "to": "2026-10-11",
+          "firstContest": 3083,
+          "lastContest": 3416
+        }
+      },
+      "uniform": {
+        "combinationProbability": 1.0675982956433769e-7,
+        "expectedHits": 0.782608695652174,
+        "logLoss": 16.052684108848812
+      },
+      "interpretation": "No se demostró una ventaja predictiva frente al azar uniforme.",
+      "picks": [
+        {
+          "numbers": [
+            8,
+            24,
+            34,
+            36,
+            42,
+            43
+          ],
+          "logScore": -9.076073360102964,
+          "rank": 1,
+          "score": 100
+        },
+        {
+          "numbers": [
+            8,
+            34,
+            35,
+            36,
+            42,
+            43
+          ],
+          "logScore": -9.080612092646444,
+          "rank": 2,
+          "score": 99.5471551937684
+        },
+        {
+          "numbers": [
+            8,
+            34,
+            36,
+            37,
+            42,
+            43
+          ],
+          "logScore": -9.081896362824853,
+          "rank": 3,
+          "score": 99.41939180991997
+        },
+        {
+          "numbers": [
+            8,
+            22,
+            34,
+            36,
+            42,
+            43
+          ],
+          "logScore": -9.082154418997185,
+          "rank": 4,
+          "score": 99.39373933224644
+        },
+        {
+          "numbers": [
+            2,
+            8,
+            34,
+            36,
+            42,
+            43
+          ],
+          "logScore": -9.085221558288385,
+          "rank": 5,
+          "score": 99.08935192694948
+        },
+        {
+          "numbers": [
+            8,
+            12,
+            34,
+            36,
+            42,
+            43
+          ],
+          "logScore": -9.086657265375614,
+          "rank": 6,
+          "score": 98.94719071746626
+        },
+        {
+          "numbers": [
+            8,
+            29,
+            34,
+            36,
+            42,
+            43
+          ],
+          "logScore": -9.09212264516615,
+          "rank": 7,
+          "score": 98.40788184733445
+        },
+        {
+          "numbers": [
+            8,
+            34,
+            36,
+            41,
+            42,
+            43
+          ],
+          "logScore": -9.093641392936545,
+          "rank": 8,
+          "score": 98.25853853230902
+        },
+        {
+          "numbers": [
+            8,
+            25,
+            34,
+            36,
+            42,
+            43
+          ],
+          "logScore": -9.09452288165504,
+          "rank": 9,
+          "score": 98.17196290242346
+        },
+        {
+          "numbers": [
+            8,
+            24,
+            34,
+            35,
+            36,
+            42
+          ],
+          "logScore": -9.096038750331179,
+          "rank": 10,
+          "score": 98.02325983462079
+        }
+      ]
+    },
+    {
+      "mode": "Siempre Sale",
+      "version": "2.0.0",
+      "selected": {
+        "id": "history1000",
+        "name": "Frecuencia · suavizado 1000",
+        "state": "full",
+        "prior": 1000
+      },
+      "sufficient": true,
+      "signal": false,
+      "count": 1669,
+      "contests": 1669,
+      "last": "2026-10-11",
+      "lastContest": 3416,
+      "validation": [
+        {
+          "id": "uniform",
+          "name": "Azar uniforme",
+          "count": 334,
+          "contests": 334,
+          "meanHits": 0.7574850299401198,
+          "meanHitsCI": [
+            0.6675615101026733,
+            0.8474085497775663
+          ],
+          "distribution": [
+            145,
+            129,
+            56,
+            4,
+            0,
+            0,
+            0
+          ],
+          "logLoss": 16.052684108848812,
+          "logGain": 0,
+          "logGainCI": [
+            0,
+            0
+          ],
+          "firstForecast": {
+            "contest": 2749,
+            "date": "2020-02-12",
+            "numbers": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          "halves": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "history200",
+          "name": "Frecuencia · suavizado 200",
+          "count": 334,
+          "contests": 334,
+          "meanHits": 0.8562874251497006,
+          "meanHitsCI": [
+            0.7580942471794234,
+            0.9544806031199777
+          ],
+          "distribution": [
+            127,
+            144,
+            49,
+            12,
+            2,
+            0,
+            0
+          ],
+          "logLoss": 16.06836236822873,
+          "logGain": -0.015678259379917587,
+          "logGainCI": [
+            -0.03577729647318398,
+            0.004420777713348801
+          ],
+          "firstForecast": {
+            "contest": 2749,
+            "date": "2020-02-12",
+            "numbers": [
+              1,
+              2,
+              9,
+              10,
+              22,
+              43
+            ]
+          },
+          "halves": [
+            -0.0335600167787529,
+            0.002203498018917729
+          ]
+        },
+        {
+          "id": "history1000",
+          "name": "Frecuencia · suavizado 1000",
+          "count": 334,
+          "contests": 334,
+          "meanHits": 0.8562874251497006,
+          "meanHitsCI": [
+            0.7580942471794234,
+            0.9544806031199777
+          ],
+          "distribution": [
+            127,
+            144,
+            49,
+            12,
+            2,
+            0,
+            0
+          ],
+          "logLoss": 16.05835710302884,
+          "logGain": -0.005672994180028752,
+          "logGainCI": [
+            -0.01841112233288264,
+            0.007065133972825135
+          ],
+          "firstForecast": {
+            "contest": 2749,
+            "date": "2020-02-12",
+            "numbers": [
+              1,
+              2,
+              9,
+              10,
+              22,
+              43
+            ]
+          },
+          "halves": [
+            -0.016311698719922295,
+            0.0049657103598647915
+          ]
+        },
+        {
+          "id": "recent52",
+          "name": "Recencia · 52 concursos",
+          "count": 334,
+          "contests": 334,
+          "meanHits": 0.7335329341317365,
+          "meanHitsCI": [
+            0.6523489134215251,
+            0.8147169548419478
+          ],
+          "distribution": [
+            152,
+            124,
+            53,
+            5,
+            0,
+            0,
+            0
+          ],
+          "logLoss": 16.07280284835462,
+          "logGain": -0.020118739505806196,
+          "logGainCI": [
+            -0.034153674151178606,
+            -0.006083804860433785
+          ],
+          "firstForecast": {
+            "contest": 2749,
+            "date": "2020-02-12",
+            "numbers": [
+              1,
+              17,
+              24,
+              37,
+              38,
+              42
+            ]
+          },
+          "halves": [
+            -0.02570093612416652,
+            -0.01453654288744587
+          ]
+        },
+        {
+          "id": "recent156",
+          "name": "Recencia · 156 concursos",
+          "count": 334,
+          "contests": 334,
+          "meanHits": 0.7335329341317365,
+          "meanHitsCI": [
+            0.6491686925947251,
+            0.8178971756687479
+          ],
+          "distribution": [
+            147,
+            136,
+            45,
+            5,
+            1,
+            0,
+            0
+          ],
+          "logLoss": 16.072695742258603,
+          "logGain": -0.020011633409790213,
+          "logGainCI": [
+            -0.03618462334752168,
+            -0.003838643472058749
+          ],
+          "firstForecast": {
+            "contest": 2749,
+            "date": "2020-02-12",
+            "numbers": [
+              1,
+              9,
+              13,
+              17,
+              22,
+              24
+            ]
+          },
+          "halves": [
+            -0.025086433197240788,
+            -0.014936833622339642
+          ]
+        },
+        {
+          "id": "recent416",
+          "name": "Recencia · 416 concursos",
+          "count": 334,
+          "contests": 334,
+          "meanHits": 0.7964071856287425,
+          "meanHitsCI": [
+            0.7041918411183001,
+            0.8886225301391848
+          ],
+          "distribution": [
+            132,
+            147,
+            48,
+            5,
+            2,
+            0,
+            0
+          ],
+          "logLoss": 16.06675688565293,
+          "logGain": -0.01407277680411514,
+          "logGainCI": [
+            -0.0305673993938907,
+            0.0024218457856604193
+          ],
+          "firstForecast": {
+            "contest": 2749,
+            "date": "2020-02-12",
+            "numbers": [
+              1,
+              9,
+              13,
+              17,
+              22,
+              24
+            ]
+          },
+          "halves": [
+            -0.023224215493728922,
+            -0.004921338114501356
+          ]
+        },
+        {
+          "id": "ensemble",
+          "name": "Ensamble regularizado",
+          "count": 334,
+          "contests": 334,
+          "meanHits": 0.8173652694610778,
+          "meanHitsCI": [
+            0.7218015972442045,
+            0.9129289416779511
+          ],
+          "distribution": [
+            131,
+            145,
+            47,
+            10,
+            1,
+            0,
+            0
+          ],
+          "logLoss": 16.061330120746906,
+          "logGain": -0.008646011898095152,
+          "logGainCI": [
+            -0.020224960932219174,
+            0.0029329371360288688
+          ],
+          "firstForecast": {
+            "contest": 2749,
+            "date": "2020-02-12",
+            "numbers": [
+              1,
+              9,
+              10,
+              17,
+              22,
+              24
+            ]
+          },
+          "halves": [
+            -0.01655013148059651,
+            -0.0007418923155937941
+          ]
+        }
+      ],
+      "audit": {
+        "count": 334,
+        "contests": 334,
+        "meanHits": 0.7514970059880239,
+        "meanHitsCI": [
+          0.6702541330650849,
+          0.832739878910963
+        ],
+        "distribution": [
+          147,
+          131,
+          49,
+          6,
+          1,
+          0,
+          0
+        ],
+        "logLoss": 16.067780212255933,
+        "logGain": -0.01509610340712064,
+        "logGainCI": [
+          -0.027101775067484048,
+          -0.0030904317467572336
+        ],
+        "firstForecast": {
+          "contest": 3083,
+          "date": "2023-08-02",
+          "numbers": [
+            1,
+            2,
+            9,
+            10,
+            17,
+            22
+          ]
+        },
+        "halves": [
+          -0.018444395594342546,
+          -0.011747811219898735
+        ]
+      },
+      "split": {
+        "training": {
+          "count": 1001,
+          "from": "2010-07-11",
+          "to": "2020-02-09",
+          "firstContest": 1748,
+          "lastContest": 2748
+        },
+        "validation": {
+          "count": 334,
+          "from": "2020-02-12",
+          "to": "2023-07-30",
+          "firstContest": 2749,
+          "lastContest": 3082
+        },
+        "test": {
+          "count": 334,
+          "from": "2023-08-02",
+          "to": "2026-10-11",
+          "firstContest": 3083,
+          "lastContest": 3416
+        }
+      },
+      "uniform": {
+        "combinationProbability": 1.0675982956433769e-7,
+        "expectedHits": 0.782608695652174,
+        "logLoss": 16.052684108848812
+      },
+      "interpretation": "No se demostró una ventaja predictiva frente al azar uniforme.",
+      "picks": [
+        {
+          "numbers": [
+            1,
+            2,
+            9,
+            10,
+            17,
+            22
+          ],
+          "logScore": -10.912375937257934,
+          "rank": 1,
+          "score": 100
+        },
+        {
+          "numbers": [
+            1,
+            2,
+            9,
+            10,
+            22,
+            36
+          ],
+          "logScore": -10.912375937257934,
+          "rank": 2,
+          "score": 100
+        },
+        {
+          "numbers": [
+            1,
+            9,
+            10,
+            17,
+            22,
+            36
+          ],
+          "logScore": -10.912375937257934,
+          "rank": 3,
+          "score": 100
+        },
+        {
+          "numbers": [
+            2,
+            9,
+            10,
+            17,
+            22,
+            36
+          ],
+          "logScore": -10.915535611443833,
+          "rank": 4,
+          "score": 99.68453123312764
+        },
+        {
+          "numbers": [
+            1,
+            2,
+            9,
+            10,
+            14,
+            22
+          ],
+          "logScore": -10.931487864254143,
+          "rank": 5,
+          "score": 98.10695479297563
+        },
+        {
+          "numbers": [
+            1,
+            9,
+            10,
+            14,
+            17,
+            22
+          ],
+          "logScore": -10.931487864254143,
+          "rank": 6,
+          "score": 98.10695479297563
+        },
+        {
+          "numbers": [
+            1,
+            9,
+            10,
+            14,
+            22,
+            36
+          ],
+          "logScore": -10.931487864254143,
+          "rank": 7,
+          "score": 98.10695479297563
+        },
+        {
+          "numbers": [
+            1,
+            2,
+            9,
+            10,
+            17,
+            36
+          ],
+          "logScore": -10.934343474168418,
+          "rank": 8,
+          "score": 97.82719922669945
+        },
+        {
+          "numbers": [
+            2,
+            9,
+            10,
+            14,
+            17,
+            22
+          ],
+          "logScore": -10.934647538440043,
+          "rank": 9,
+          "score": 97.79745799247404
+        },
+        {
+          "numbers": [
+            2,
+            9,
+            10,
+            14,
+            22,
+            36
+          ],
+          "logScore": -10.934647538440043,
+          "rank": 10,
+          "score": 97.79745799247404
+        }
+      ]
+    },
+    {
+      "mode": "Todas",
+      "version": "2.0.0",
+      "selected": {
+        "id": "ensemble",
+        "name": "Ensamble regularizado",
+        "state": null,
+        "prior": 0
+      },
+      "sufficient": true,
+      "signal": false,
+      "count": 6676,
+      "contests": 1669,
+      "last": "2026-10-11",
+      "lastContest": 3416,
+      "validation": [
+        {
+          "id": "uniform",
+          "name": "Azar uniforme",
+          "count": 1336,
+          "contests": 334,
+          "meanHits": 0.7574850299401198,
+          "meanHitsCI": [
+            0.7153239017683454,
+            0.7996461581118942
+          ],
+          "distribution": [
+            582,
+            528,
+            196,
+            28,
+            2,
+            0,
+            0
+          ],
+          "logLoss": 16.052684108848812,
+          "logGain": 0,
+          "logGainCI": [
+            0,
+            0
+          ],
+          "firstForecast": {
+            "contest": 2749,
+            "date": "2020-02-12",
+            "numbers": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          "halves": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "history200",
+          "name": "Frecuencia · suavizado 200",
+          "count": 1336,
+          "contests": 334,
+          "meanHits": 0.7717065868263473,
+          "meanHitsCI": [
+            0.725475066403845,
+            0.8179381072488496
+          ],
+          "distribution": [
+            566,
+            556,
+            173,
+            35,
+            6,
+            0,
+            0
+          ],
+          "logLoss": 16.061831992356552,
+          "logGain": -0.009147883507741088,
+          "logGainCI": [
+            -0.016067380745123743,
+            -0.0022283862703584333
+          ],
+          "firstForecast": {
+            "contest": 2749,
+            "date": "2020-02-12",
+            "numbers": [
+              1,
+              2,
+              6,
+              10,
+              22,
+              28
+            ]
+          },
+          "halves": [
+            -0.008766117473606973,
+            -0.009529649541875202
+          ]
+        },
+        {
+          "id": "history1000",
+          "name": "Frecuencia · suavizado 1000",
+          "count": 1336,
+          "contests": 334,
+          "meanHits": 0.7717065868263473,
+          "meanHitsCI": [
+            0.725475066403845,
+            0.8179381072488496
+          ],
+          "distribution": [
+            566,
+            556,
+            173,
+            35,
+            6,
+            0,
+            0
+          ],
+          "logLoss": 16.059549852821544,
+          "logGain": -0.006865743972732967,
+          "logGainCI": [
+            -0.01279240901840638,
+            -0.0009390789270595536
+          ],
+          "firstForecast": {
+            "contest": 2749,
+            "date": "2020-02-12",
+            "numbers": [
+              1,
+              2,
+              6,
+              10,
+              22,
+              28
+            ]
+          },
+          "halves": [
+            -0.00630741298710322,
+            -0.007424074958362713
+          ]
+        },
+        {
+          "id": "recent52",
+          "name": "Recencia · 52 concursos",
+          "count": 1336,
+          "contests": 334,
+          "meanHits": 0.8188622754491018,
+          "meanHitsCI": [
+            0.7700423372022177,
+            0.867682213695986
+          ],
+          "distribution": [
+            522,
+            567,
+            215,
+            31,
+            1,
+            0,
+            0
+          ],
+          "logLoss": 16.065434327373016,
+          "logGain": -0.012750218524203237,
+          "logGainCI": [
+            -0.022078327977873118,
+            -0.0034221090705333582
+          ],
+          "firstForecast": {
+            "contest": 2749,
+            "date": "2020-02-12",
+            "numbers": [
+              1,
+              12,
+              35,
+              36,
+              38,
+              41
+            ]
+          },
+          "halves": [
+            -0.013506757461433016,
+            -0.011993679586973458
+          ]
+        },
+        {
+          "id": "recent156",
+          "name": "Recencia · 156 concursos",
+          "count": 1336,
+          "contests": 334,
+          "meanHits": 0.780688622754491,
+          "meanHitsCI": [
+            0.7367804337472152,
+            0.8245968117617668
+          ],
+          "distribution": [
+            540,
+            575,
+            195,
+            26,
+            0,
+            0,
+            0
+          ],
+          "logLoss": 16.059866857919737,
+          "logGain": -0.007182749070925357,
+          "logGainCI": [
+            -0.014623396165172817,
+            0.00025789802332210326
+          ],
+          "firstForecast": {
+            "contest": 2749,
+            "date": "2020-02-12",
+            "numbers": [
+              20,
+              22,
+              28,
+              38,
+              41,
+              45
+            ]
+          },
+          "halves": [
+            -0.007672816974736585,
+            -0.00669268116711413
+          ]
+        },
+        {
+          "id": "recent416",
+          "name": "Recencia · 416 concursos",
+          "count": 1336,
+          "contests": 334,
+          "meanHits": 0.7642215568862275,
+          "meanHitsCI": [
+            0.7216857563681253,
+            0.8067573574043297
+          ],
+          "distribution": [
+            561,
+            565,
+            175,
+            34,
+            1,
+            0,
+            0
+          ],
+          "logLoss": 16.05771838873271,
+          "logGain": -0.005034279883896144,
+          "logGainCI": [
+            -0.010807994312130049,
+            0.0007394345443377621
+          ],
+          "firstForecast": {
+            "contest": 2749,
+            "date": "2020-02-12",
+            "numbers": [
+              1,
+              2,
+              6,
+              22,
+              28,
+              43
+            ]
+          },
+          "halves": [
+            -0.00547522456871044,
+            -0.004593335199081847
+          ]
+        },
+        {
+          "id": "ensemble",
+          "name": "Ensamble regularizado",
+          "count": 1336,
+          "contests": 334,
+          "meanHits": 0.7889221556886228,
+          "meanHitsCI": [
+            0.7443085620155077,
+            0.8335357493617379
+          ],
+          "distribution": [
+            549,
+            556,
+            195,
+            36,
+            0,
+            0,
+            0
+          ],
+          "logLoss": 16.056310083112923,
+          "logGain": -0.0036259742641115192,
+          "logGainCI": [
+            -0.008439350825337056,
+            0.0011874022971140176
+          ],
+          "firstForecast": {
+            "contest": 2749,
+            "date": "2020-02-12",
+            "numbers": [
+              1,
+              6,
+              22,
+              28,
+              41,
+              43
+            ]
+          },
+          "halves": [
+            -0.003795074084667789,
+            -0.0034568744435552494
+          ]
+        }
+      ],
+      "audit": {
+        "count": 1336,
+        "contests": 334,
+        "meanHits": 0.7732035928143712,
+        "meanHitsCI": [
+          0.7307182668862824,
+          0.8156889187424601
+        ],
+        "distribution": [
+          554,
+          567,
+          181,
+          32,
+          2,
+          0,
+          0
+        ],
+        "logLoss": 16.056447269547732,
+        "logGain": -0.003763160698920593,
+        "logGainCI": [
+          -0.008014126396098902,
+          0.00048780499825771574
+        ],
+        "firstForecast": {
+          "contest": 3083,
+          "date": "2023-08-02",
+          "numbers": [
+            2,
+            6,
+            9,
+            17,
+            36,
+            43
+          ]
+        },
+        "halves": [
+          -0.0040960020594248605,
+          -0.003430319338416325
+        ]
+      },
+      "split": {
+        "training": {
+          "count": 1001,
+          "from": "2010-07-11",
+          "to": "2020-02-09",
+          "firstContest": 1748,
+          "lastContest": 2748
+        },
+        "validation": {
+          "count": 334,
+          "from": "2020-02-12",
+          "to": "2023-07-30",
+          "firstContest": 2749,
+          "lastContest": 3082
+        },
+        "test": {
+          "count": 334,
+          "from": "2023-08-02",
+          "to": "2026-10-11",
+          "firstContest": 3083,
+          "lastContest": 3416
+        }
+      },
+      "uniform": {
+        "combinationProbability": 1.0675982956433769e-7,
+        "expectedHits": 0.782608695652174,
+        "logLoss": 16.052684108848812
+      },
+      "interpretation": "No se demostró una ventaja predictiva frente al azar uniforme.",
+      "picks": [
+        {
+          "numbers": [
+            6,
+            8,
+            22,
+            24,
+            36,
+            42
+          ],
+          "logScore": -9.187067664362672,
+          "rank": 1,
+          "score": 100
+        },
+        {
+          "numbers": [
+            6,
+            8,
+            9,
+            22,
+            36,
+            42
+          ],
+          "logScore": -9.191955503239484,
+          "rank": 2,
+          "score": 99.51240871688559
+        },
+        {
+          "numbers": [
+            6,
+            8,
+            16,
+            22,
+            36,
+            42
+          ],
+          "logScore": -9.195713696494227,
+          "rank": 3,
+          "score": 99.13912373159629
+        },
+        {
+          "numbers": [
+            0,
+            6,
+            8,
+            22,
+            36,
+            42
+          ],
+          "logScore": -9.195761144408031,
+          "rank": 4,
+          "score": 99.13441989859326
+        },
+        {
+          "numbers": [
+            8,
+            9,
+            22,
+            24,
+            36,
+            42
+          ],
+          "logScore": -9.19681064292175,
+          "rank": 5,
+          "score": 99.03043304881808
+        },
+        {
+          "numbers": [
+            2,
+            6,
+            8,
+            22,
+            36,
+            42
+          ],
+          "logScore": -9.197295515754242,
+          "rank": 6,
+          "score": 98.98242752147142
+        },
+        {
+          "numbers": [
+            6,
+            8,
+            12,
+            22,
+            36,
+            42
+          ],
+          "logScore": -9.200122992702264,
+          "rank": 7,
+          "score": 98.70295228048754
+        },
+        {
+          "numbers": [
+            8,
+            16,
+            22,
+            24,
+            36,
+            42
+          ],
+          "logScore": -9.200568836176492,
+          "rank": 8,
+          "score": 98.65895602177741
+        },
+        {
+          "numbers": [
+            0,
+            8,
+            22,
+            24,
+            36,
+            42
+          ],
+          "logScore": -9.200616284090298,
+          "rank": 9,
+          "score": 98.65427497118982
+        },
+        {
+          "numbers": [
+            6,
+            8,
+            14,
+            22,
+            36,
+            42
+          ],
+          "logScore": -9.201324932770284,
+          "rank": 10,
+          "score": 98.58438851485371
+        }
+      ]
+    }
+  ]
+}

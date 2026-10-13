@@ -3,6 +3,11 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  # Los pushes con GITHUB_TOKEN no disparan otro workflow de push.
+  workflow_run:
+    workflows: ["Actualizar historial Quini 6"]
+    types: [completed]
+    branches: [main]
 permissions:
   contents: read
   pages: write
@@ -12,12 +17,19 @@ concurrency:
   cancel-in-progress: true
 jobs:
   deploy:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Verificar el motor y la base antes de publicar
+        run: |
+          node --test tests/model.test.js
+          python -m unittest discover -s tests -p '*_test.py'
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
