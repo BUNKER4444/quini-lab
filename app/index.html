@@ -1,27 +1,62 @@
 <!doctype html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#102b4e"><title>Quini Lab</title>
+<html lang="es"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#102b4e"><title>Quini Lab | Historial y análisis</title>
 <style>
-:root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:#1b3049;background:#eef3f8}*{box-sizing:border-box}body{margin:0}header{background:#102b4e;color:white;padding:28px 20px}header>div,main{max-width:1000px;margin:auto}h1{margin:0;font-size:32px}header p{margin-bottom:0;color:#d3e1f2}main{padding:14px}section{background:white;border-radius:15px;padding:20px;margin:14px 0;box-shadow:0 2px 12px #16345215}h2{font-size:20px;margin-top:0}.muted{color:#566980}.pill{display:inline-block;padding:6px 11px;border-radius:18px;background:#fff1d5;color:#6d4700;font-size:13px;margin-bottom:15px}button{border:0;background:#1763b5;color:white;padding:11px 16px;border-radius:8px;font-weight:600;cursor:pointer}.balls{display:flex;flex-wrap:wrap;gap:7px;margin:8px 0 16px}.ball{display:inline-grid;place-items:center;width:43px;height:43px;border-radius:50%;background:#eaf1fc;border:1px solid #9bbce6;font-weight:700}.record{padding:12px 0;border-bottom:1px solid #e8edf3}.record h3{margin:0 0 12px;font-size:16px}table{border-collapse:collapse;width:100%}th,td{text-align:left;padding:9px;border-bottom:1px solid #e9edf2}small{font-size:12px}a{color:#1763b5}@media(max-width:520px){.ball{width:36px;height:36px}.record{font-size:14px}}
-</style></head><body><header><div><h1>Quini Lab</h1><p>Historial y estadísticas del Quini 6</p></div></header><main>
-<section><span class="pill">Versión de prueba · Aún sin resultados históricos verificados</span><h2>Estado de la base</h2><p id="status" aria-live="polite">Consultando datos…</p><button id="reload">Comprobar actualización</button></section>
-<section><h2>Últimos concursos cargados</h2><div id="results">No hay concursos cargados.</div></section>
-<section><h2>Frecuencias observadas</h2><p class="muted">Conteo histórico, no predicción. Se calcula sobre todos los concursos disponibles y se diferencia por modalidad en futuras versiones.</p><div id="stats">Sin datos suficientes.</div></section>
-<section><h2>Probabilidad matemática</h2><p>Si se extraen seis números distintos entre 00 y 45, cada combinación específica tiene una probabilidad de <b>1 en 9.366.819</b> en una extracción uniforme. Un número o pareja que salió más veces no gana una ventaja para el próximo sorteo.</p></section>
-<section><h2>Fuentes y transparencia</h2><p class="muted">El panel no muestra números sugeridos hasta tener un historial verificable y un método de evaluación documentado. <a href="https://www.loteriasantafe.gov.ar/" target="_blank" rel="noopener noreferrer">Lotería de Santa Fe</a>.</p></section>
-</main><script>
-const safe=t=>String(t??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+:root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:#142f50;background:#edf3f8}*{box-sizing:border-box}body{margin:0}header{background:#102b4e;color:white;padding:28px 18px}header>div,main{max-width:1020px;margin:auto}header h1{margin:0;font-size:32px}header p{margin:9px 0 0;color:#d5e2f1}main{padding:14px}section{background:white;border-radius:15px;padding:20px;margin:13px 0;box-shadow:0 2px 12px #16345212}h2{font-size:21px;margin:0 0 12px}.muted{color:#61728a;font-size:14px;line-height:1.5}.eyebrow{display:inline-block;padding:6px 11px;border-radius:16px;background:#e7f3e9;color:#26603b;font-size:13px;margin-bottom:12px}.balls{display:flex;flex-wrap:wrap;gap:9px;margin:14px 0}.ball{display:inline-grid;place-items:center;width:49px;height:49px;border-radius:50%;background:#e4efff;border:2px solid #83ace6;font-weight:800;font-size:19px}.featured .ball{background:#185ca8;border-color:#185ca8;color:white}button,select{font:inherit;border:1px solid #9eb8d5;border-radius:8px;padding:11px 14px}button{background:#1763b5;color:white;cursor:pointer;font-weight:600}select{background:white;max-width:100%;width:250px;color:#17385c}.record{padding:13px 0;border-bottom:1px solid #e4eaf2}.record h3{font-size:15px;margin:0 0 9px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px}.metric{background:#f1f5fb;padding:13px;border-radius:10px}.metric strong{display:block;font-size:21px}.metric span{font-size:12px;color:#526783}.stack{display:flex;align-items:center;gap:10px;flex-wrap:wrap}table{border-collapse:collapse;width:100%}th,td{text-align:left;padding:9px;border-bottom:1px solid #e9edf2}small{color:#53667d}a{color:#1763b5}.featured{border:2px solid #7eaadd}.error{color:#a32b21}@media(max-width:520px){section{padding:16px}.ball{width:42px;height:42px;font-size:16px}header h1{font-size:28px}}
+</style></head><body><header><div><h1>Quini Lab</h1><p>Historial, tendencias y combinaciones del Quini 6</p></div></header>
+<main>
+<section><span class="eyebrow">Historial conectado · Actualización automática programada</span><h2>Estado de la base</h2><p id="status" aria-live="polite">Cargando historial…</p><div id="metrics" class="grid"></div><p><button id="reload">Comprobar actualización</button></p></section>
+<section class="featured"><h2>Combinación de 6 números según historial</h2>
+<p class="muted">Selección heurística basada en frecuencias individuales y coincidencias de parejas dentro de la modalidad elegida. <strong>No son números más probables de ganar</strong>: todas las combinaciones específicas conservan la misma probabilidad en un sorteo justo.</p>
+<div class="stack"><label for="mode"><strong>Modalidad:</strong></label><select id="mode"><option>Tradicional</option><option>La Segunda</option><option>Revancha</option><option>Siempre Sale</option><option value="Todas">Todas (combinadas)</option></select></div>
+<div id="pick" class="balls" aria-live="polite">Calculando…</div><div id="explain" class="muted"></div>
+</section>
+<section><h2>Frecuencias históricas</h2><div id="stats">Cargando…</div></section>
+<section><h2>Parejas de números más repetidas</h2><div id="pairs">Cargando…</div></section>
+<section><h2>Últimos concursos registrados</h2><div id="results">Cargando…</div></section>
+<section><h2>Probabilidad matemática y limitaciones</h2>
+<p>En una extracción uniforme de seis números distintos entre 00 y 45, la probabilidad de cualquier combinación determinada es <strong>1 entre 9.366.819</strong>. Las frecuencias y parejas del pasado no proporcionan una ventaja demostrada en la próxima extracción.</p>
+<p class="muted">La selección mostrada es descriptiva y no ha demostrado capacidad predictiva fuera de muestra. Distintas modalidades pueden tener reglamentos de premios diferentes.</p></section>
+<section><h2>Fuente de datos</h2><p id="source" class="muted">Cargando atribución…</p><p><a href="https://www.loteriasantafe.gov.ar/" target="_blank" rel="noopener noreferrer">Lotería de Santa Fe — referencia oficial</a></p></section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const escapeHTML=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','&#39;':'&#39;'}[c]));
+const pad=n=>String(n).padStart(2,'0');
+let history=[];
 function valid(a){return Array.isArray(a)&&a.length===6&&a.every(n=>Number.isInteger(n)&&n>=0&&n<=45)&&new Set(a).size===6}
+function sample(){const mode=$('mode').value;const draws=[];for(const d of history){for(const [m,a] of Object.entries(d.results||{})){if((mode==='Todas'||mode===m)&&valid(a))draws.push(a)}}return draws}
+function compute(){
+const draws=sample(), freq=Array(46).fill(0), pair=Array.from({length:46},()=>Array(46).fill(0));
+for(const a of draws){for(let i=0;i<6;i++){freq[a[i]]++;for(let j=i+1;j<6;j++){pair[a[i]][a[j]]++;pair[a[j]][a[i]]++}}}
+if(!draws.length){$('pick').textContent='No hay resultados suficientes.';$('stats').textContent='Sin resultados.';$('pairs').textContent='Sin resultados.';$('explain').textContent='';return}
+const avg=draws.length*6/46, expectedPair=draws.length*30/(46*45);
+const chosen=[];
+for(let k=0;k<6;k++){let best=-1,bestScore=-Infinity;for(let n=0;n<46;n++){if(chosen.includes(n))continue;
+let score=0.35*(freq[n]/avg);
+if(chosen.length)score+=0.65*(chosen.reduce((s,m)=>s+pair[n][m]/Math.max(expectedPair,1),0)/chosen.length);
+if(score>bestScore){best=n;bestScore=score}}chosen.push(best)}
+chosen.sort((a,b)=>a-b);
+$('pick').innerHTML=chosen.map(n=>'<span class="ball">'+pad(n)+'</span>').join('');
+let pcount=0;for(let i=0;i<6;i++)for(let j=i+1;j<6;j++)pcount+=pair[chosen[i]][chosen[j]];
+$('explain').textContent='Base analizada: '+draws.length.toLocaleString('es-AR')+' extracciones. Puntaje: 35 % frecuencia relativa y 65 % coocurrencia relativa de parejas; selección secuencial de seis números. Las 15 parejas de esta combinación acumularon '+pcount.toLocaleString('es-AR')+' apariciones en el historial (pueden aparecer varias en una extracción). Criterio exploratorio, no validado como predictor.';
+const top=freq.map((count,n)=>({n,count})).sort((a,b)=>b.count-a.count||a.n-b.n).slice(0,12);
+$('stats').innerHTML='<p class="muted">Extracciones para esta modalidad: '+draws.length.toLocaleString('es-AR')+'</p><table><thead><tr><th>Número</th><th>Apariciones</th><th>Frecuencia</th></tr></thead><tbody>'+top.map(x=>'<tr><td>'+pad(x.n)+'</td><td>'+x.count.toLocaleString('es-AR')+'</td><td>'+(100*x.count/draws.length).toFixed(1)+' %</td></tr>').join('')+'</tbody></table>';
+const pairs=[];for(let a=0;a<46;a++)for(let b=a+1;b<46;b++)pairs.push({a,b,count:pair[a][b]});pairs.sort((x,y)=>y.count-x.count||x.a-y.a||x.b-y.b);
+$('pairs').innerHTML='<table><thead><tr><th>Pareja</th><th>Apariciones</th></tr></thead><tbody>'+pairs.slice(0,12).map(x=>'<tr><td>'+pad(x.a)+' – '+pad(x.b)+'</td><td>'+x.count.toLocaleString('es-AR')+'</td></tr>').join('')+'</tbody></table>';
+}
 async function load(){
-document.getElementById('status').textContent='Consultando…';
+$('status').textContent='Consultando historial…';
 try{
-const r=await fetch('./data.json?t='+Date.now(),{cache:'no-store'});if(!r.ok)throw Error('HTTP '+r.status);
-const d=await r.json(),draws=Array.isArray(d.draws)?d.draws:[],counts=Array(46).fill(0);let samples=0;
-document.getElementById('status').textContent=draws.length+' concursos cargados · Actualización: '+(d.updated||'pendiente')+' · Fuente: '+(d.source||'sin especificar');
-const latest=draws.slice().sort((a,b)=>String(b.date||'').localeCompare(String(a.date||''))).slice(0,10);
-document.getElementById('results').innerHTML=latest.map(x=>'<div class="record"><h3>Concurso '+safe(x.contest)+' · '+safe(x.date)+'</h3>'+Object.entries(x.results||{}).filter(([k,a])=>valid(a)).map(([k,a])=>'<div><b>'+safe(k)+'</b><div class="balls">'+a.map(n=>'<span class="ball">'+String(n).padStart(2,'0')+'</span>').join('')+'</div></div>').join('')+'</div>').join('')||'No hay resultados verificados cargados.';
-for(const x of draws){for(const a of Object.values(x.results||{})){if(!valid(a))continue;samples++;for(const n of a)counts[n]++}}
-const rank=counts.map((count,n)=>({n,count})).sort((a,b)=>b.count-a.count||a.n-b.n).slice(0,12);
-document.getElementById('stats').innerHTML=samples?'<p>Extracciones válidas analizadas: '+samples+'</p><table><thead><tr><th>Número</th><th>Apariciones</th></tr></thead><tbody>'+rank.map(x=>'<tr><td>'+String(x.n).padStart(2,'0')+'</td><td>'+x.count+'</td></tr>').join('')+'</tbody></table>':'No hay estadísticas hasta cargar resultados verificados.';
-}catch(e){document.getElementById('status').textContent='Error al consultar los datos: '+e.message}}
-document.getElementById('reload').addEventListener('click',load);load();
+const response=await fetch('./data.json?nocache='+Date.now(),{cache:'no-store'});if(!response.ok)throw Error('HTTP '+response.status);
+const d=await response.json();history=Array.isArray(d.draws)?d.draws:[];
+$('status').textContent=history.length.toLocaleString('es-AR')+' concursos cargados · Última actualización: '+(d.updated||'pendiente');
+$('metrics').innerHTML=[['Concursos',d.draw_count??history.length],['Extracciones',d.record_count??'—'],['Desde',d.first_date||'—'],['Último sorteo',d.last_date||'—']].map(([k,v])=>'<div class="metric"><span>'+escapeHTML(k)+'</span><strong>'+escapeHTML(v)+'</strong></div>').join('');
+$('source').innerHTML='Datos históricos: '+escapeHTML(d.source)+' — <a target="_blank" rel="noopener noreferrer" href="'+escapeHTML(d.source_url||'https://www.loteriasantafe.gov.ar/')+'">ver origen</a>. Los datos provienen de un tercero y no están certificados individualmente por Lotería de Santa Fe.';
+const recent=history.slice().sort((a,b)=>String(b.date||'').localeCompare(String(a.date||''))).slice(0,5);
+$('results').innerHTML=recent.map(d=>'<div class="record"><h3>Concurso '+escapeHTML(d.contest)+' · '+escapeHTML(d.date)+'</h3>'+Object.entries(d.results||{}).filter(([m,a])=>valid(a)).map(([m,a])=>'<strong>'+escapeHTML(m)+'</strong><div class="balls">'+a.map(n=>'<span class="ball">'+pad(n)+'</span>').join('')+'</div>').join('')+'</div>').join('')||'Sin resultados.';
+compute();
+}catch(e){$('status').className='error';$('status').textContent='No se pudo cargar el historial: '+e.message;$('pick').textContent='Sin datos disponibles';$('stats').textContent='Sin datos disponibles';$('pairs').textContent='Sin datos disponibles'}}
+$('reload').addEventListener('click',load);$('mode').addEventListener('change',compute);load();
 </script></body></html>
